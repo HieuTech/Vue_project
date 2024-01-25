@@ -1,18 +1,74 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <div id="wrapper">
+
+<!-- Header Container
+================================================== -->
+
+<!-- Header Container / End -->
+
+
+<!-- Banner
+================================================== -->
+<TheBanner></TheBanner>
+
+<!-- Content
+================================================== -->
+<TheCategory></TheCategory>
+<!-- Category Boxes / End -->
+
+
+
+
+<!-- Fullwidth Section -->
+<ThePlaces></ThePlaces>
+<!-- Fullwidth Section / End -->
+
+<TheReviews></TheReviews>
+
+
+
+<!-- Info Section -->
+<ThePlan></ThePlan>
+<!-- Info Section / End -->
+
+
+<!-- Recent Blog Posts -->
+<TheBlog></TheBlog>
+<!-- Recent Blog Posts / End -->
+
+
+<!-- Footer
+================================================== -->
+
+<!-- Footer / End -->
+
+
+<!-- Back To Top Button -->
+
+
+</div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
+import TheBanner from '@/components/TheBanner.vue';
+import TheCategory from '@/components/TheCategories.vue';
+import ThePlaces  
+from '@/components/ThePlaces.vue';
+import TheReviews from '@/components/TheReviews.vue';
+import ThePlan from "@/components/ThePlan.vue";
+import TheBlog from "@/components/TheBlog.vue";
 export default {
   name: 'HomeView',
   components: {
-    HelloWorld
+    TheBanner,
+    TheCategory,
+    ThePlaces,
+    TheReviews,
+    ThePlan,
+    TheBlog,
+
   }
 }
 </script>
