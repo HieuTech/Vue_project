@@ -14,9 +14,9 @@ const mutations = {
 }
 
 const actions = {
-    async getLocationListAction(context){
+    async getLocationListAction(context,payload){
         //truyen keyword vào api để gọi
-       const data =  await getLocationList();
+       const data =  await getLocationList(payload);
        console.log(data);
        context.commit("setLocationMutation", data);
     }

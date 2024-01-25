@@ -5,17 +5,23 @@
     <div class="main-search-input-item location">
       <div id="autocomplete-container">
         <input id="autocomplete-input"  type="text" placeholder="Location"
-
+        v-model="keyword"
         />
       </div>
       <a href="#"><i class="fa fa-map-marker"></i></a>
-      <ul class="list-location">
+      <ul v-if="locationList.length >0 && keyword " class="list-location" >
           
         <li v-for="(location, index) in locationList" :key="index">
             <span class="im im-icon-Location-2"></span>
+            {{ console.log(location.name)
+             }}
             <span class="location-item-title">{{ location.name }}</span>
         </li>
-        
+          <li>
+            <span class="im im-icon-Location-2"></span>
+         
+            <span class="location-item-title">{{ locationList }}</span>
+        </li>
      
       </ul>
     </div>
@@ -33,15 +39,20 @@
 
 
 <script>
-import { computed } from "vue";
+import { computed,ref,watch } from "vue";
 import { useStore } from "vuex";
 export default {
     setup(){
-
         const store = useStore();
+        const keyword = ref("")
+
+        watch(keyword,(newValue)=>{
+            store.dispatch("/location/getLocationListAction",newValue)
+            console.log(keyword, "new Value" , newValue);
+        })
 
        
-        store.dispatch('location/getLocationListAction')
+        // store.dispatch('location/getLocationListAction')
 
        const locationList = computed(()=>{
         return store.state.location.locationList
@@ -49,6 +60,7 @@ export default {
        console.log(locationList);
        return{
         locationList,
+        keyword
        }
     },
     //computed cập nhật lại dữ liệu và tính toán
